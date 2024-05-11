@@ -2,18 +2,18 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
-    "airbnb",
-    "airbnb-typescript",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
     "plugin:prettier/recommended",
   ],
   parserOptions: {
     project: './tsconfig.json'
   },
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.ts"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh", "prettier"],
   rules: {
@@ -27,110 +27,3 @@ module.exports = {
     "react/button-has-type": "off",
   },
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
