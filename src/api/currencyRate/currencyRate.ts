@@ -1,10 +1,8 @@
-import { Currency } from 'types';
-
 import { AxiosResponse, api } from '../config';
-import { ICurrencyRateResponse } from './interfaces';
+import { ICBRCurrencyRateResponse } from './types';
 
-export const getCurrencyRate = (
-  currency: Currency
-): Promise<AxiosResponse<ICurrencyRateResponse>> => {
-  return api.get(`https://www.floatrates.com/daily/${currency}.json`);
+export const getCBRCurrencyRate = (): Promise<
+  AxiosResponse<ICBRCurrencyRateResponse>
+> => {
+  return api.get(`https://www.cbr-xml-daily.ru/latest.js`);
 };

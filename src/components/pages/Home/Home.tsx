@@ -2,6 +2,12 @@ import { FC } from 'react';
 
 import { Layout } from 'components/common/Layout';
 
+import { useHome } from './useHome';
+
 export const Home: FC = () => {
-  return <Layout>Home</Layout>;
+  const { currencyRate, isLoading } = useHome();
+
+  return (
+    <Layout>{isLoading ? 'LOADING' : JSON.stringify(currencyRate)}</Layout>
+  );
 };
