@@ -36,7 +36,7 @@ export const Home: FC = () => {
               key={currency}
             >
               <div>{currency.toUpperCase()}</div>
-              <div>{value}</div>
+              <div>{value.toLocaleString().replace(/,/g, ' ')}</div>
               <br />
             </div>
           ))}
