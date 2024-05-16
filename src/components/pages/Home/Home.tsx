@@ -9,6 +9,7 @@ export const Home: FC = () => {
   const {
     selectedCurrency,
     amount,
+    dateOfUpdate,
     currencyRate,
     onCurrencySelect,
     onAmountChange,
@@ -16,6 +17,8 @@ export const Home: FC = () => {
 
   return (
     <Layout>
+      <div>{dateOfUpdate}</div>
+      <br />
       <div>{selectedCurrency.toUpperCase()}</div>
       <input
         type="number"

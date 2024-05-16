@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { useMemo, useState } from 'react';
 
 import { TCurrencyRate, useSelector } from 'store';
@@ -28,6 +29,7 @@ export const useConverter = () => {
   return {
     selectedCurrency,
     amount,
+    dateOfUpdate: dayjs(currencyRate?.dateOfUpdate).format('DD.MM.YYYY'),
     currencyRate: convertedCurrencyRate,
     onCurrencySelect,
     onAmountChange,

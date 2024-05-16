@@ -5,6 +5,7 @@ export type TCurrencyRate = {
 };
 
 export interface ICurrencyRateData {
-  timestamp: string;
+  /** '2000-12-31' */
+  dateOfUpdate: string;
   rates: TCurrencyRate;
 }

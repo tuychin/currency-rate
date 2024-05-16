@@ -15,13 +15,13 @@ const transformObjectKeysToLowercase = <T>(object: {
 };
 
 export const mapCurrencyRate = ({
-  timestamp,
+  date,
   rates,
 }: ICBRCurrencyRateResponse): ICurrencyRateData => {
   const newRates = { ...rates, RUB: 1 };
 
   return {
-    timestamp,
+    dateOfUpdate: date,
     rates: transformObjectKeysToLowercase(newRates),
   };
 };
