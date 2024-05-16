@@ -15,7 +15,9 @@ export const convertCurrencyRate = (
       return;
     }
 
-    result[key] = (amount * currencyRate[key]) / currencyRate[currency];
+    const value = (amount * currencyRate[key]) / currencyRate[currency];
+    const roundedValue = Number(value.toFixed(2));
+    result[key] = roundedValue || value;
   });
 
   return result;
