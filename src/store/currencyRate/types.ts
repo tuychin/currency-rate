@@ -1,8 +1,10 @@
-import { Currency } from 'types';
+import { TCurrency } from 'types';
 
-export interface ICurrencyRate {
+export type TCurrencyRate = {
+  [key in TCurrency]: number;
+};
+
+export interface ICurrencyRateData {
   timestamp: string;
-  rates: {
-    [key in Currency]: number;
-  };
+  rates: TCurrencyRate;
 }

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
+
 import { useDispatch, useSelector } from 'store';
 import { fetchCurrencyRate } from 'store/currencyRate';
 
-export const useHome = () => {
-  const currencyRate = useSelector((state) => state.currencyRate.data);
+export const useInit = () => {
   const isLoading = useSelector((state) => state.currencyRate.isLoading);
 
   const dispatch = useDispatch();
@@ -13,7 +13,6 @@ export const useHome = () => {
   }, [dispatch]);
 
   return {
-    currencyRate,
     isLoading,
   };
 };

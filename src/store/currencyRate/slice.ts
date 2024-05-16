@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchCurrencyRate } from './thunks';
-import { ICurrencyRate } from './types';
+import { ICurrencyRateData } from './types';
 
 interface CurrencyRateState {
-  data: ICurrencyRate | null;
+  data: ICurrencyRateData | null;
   isLoading: boolean;
 }
 

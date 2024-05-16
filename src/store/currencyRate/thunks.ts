@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { getCBRCurrencyRate } from 'api/currencyRate';
 
 import { mapCurrencyRate } from './mappers';

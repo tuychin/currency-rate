@@ -1,6 +1,6 @@
 import { ICBRCurrencyRateResponse } from 'api/currencyRate';
 
-import { ICurrencyRate } from './types';
+import { ICurrencyRateData } from './types';
 
 const transformObjectKeysToLowercase = <T>(object: {
   [key: string]: number;
@@ -17,9 +17,11 @@ const transformObjectKeysToLowercase = <T>(object: {
 export const mapCurrencyRate = ({
   timestamp,
   rates,
-}: ICBRCurrencyRateResponse): ICurrencyRate => {
+}: ICBRCurrencyRateResponse): ICurrencyRateData => {
+  const newRates = { ...rates, RUB: 1 };
+
   return {
     timestamp,
-    rates: transformObjectKeysToLowercase(rates),
+    rates: transformObjectKeysToLowercase(newRates),
   };
 };

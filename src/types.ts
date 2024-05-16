@@ -1,46 +1,45 @@
-export enum Currency {
-  RUB = 'rub',
-  AUD = 'aud',
-  AZN = 'azn',
-  GBP = 'gbp',
-  AMD = 'amd',
-  BYN = 'byn',
-  BGN = 'bgn',
-  BRL = 'brl',
-  HUF = 'huf',
-  VND = 'vnd',
-  HKD = 'hkd',
-  GEL = 'gel',
-  DKK = 'dkk',
-  AED = 'aed',
-  USD = 'usd',
-  EUR = 'eur',
-  EGP = 'egp',
-  INR = 'inr',
-  IDR = 'idr',
-  KZT = 'kzt',
-  CAD = 'cad',
-  QAR = 'qar',
-  KGS = 'kgs',
-  CNY = 'cny',
-  MDL = 'mdl',
-  NZD = 'nzd',
-  NOK = 'nok',
-  PLN = 'pln',
-  RON = 'ron',
-  XDR = 'xdr',
-  SGD = 'sgd',
-  TJS = 'tjs',
-  THB = 'thb',
-  TRY = 'try',
-  TMT = 'tmt',
-  UZS = 'uzs',
-  UAH = 'uah',
-  CZK = 'czk',
-  SEK = 'sek',
-  CHF = 'chf',
-  RSD = 'rsd',
-  ZAR = 'zar',
-  KRW = 'krw',
-  JPY = 'jpy',
-}
+export type TCurrency =
+  | 'rub'
+  | 'aud'
+  | 'azn'
+  | 'gbp'
+  | 'amd'
+  | 'byn'
+  | 'bgn'
+  | 'brl'
+  | 'huf'
+  | 'vnd'
+  | 'hkd'
+  | 'gel'
+  | 'dkk'
+  | 'aed'
+  | 'usd'
+  | 'eur'
+  | 'egp'
+  | 'inr'
+  | 'idr'
+  | 'kzt'
+  | 'cad'
+  | 'qar'
+  | 'kgs'
+  | 'cny'
+  | 'mdl'
+  | 'nzd'
+  | 'nok'
+  | 'pln'
+  | 'ron'
+  | 'xdr'
+  | 'sgd'
+  | 'tjs'
+  | 'thb'
+  | 'try'
+  | 'tmt'
+  | 'uzs'
+  | 'uah'
+  | 'czk'
+  | 'sek'
+  | 'chf'
+  | 'rsd'
+  | 'zar'
+  | 'krw'
+  | 'jpy';

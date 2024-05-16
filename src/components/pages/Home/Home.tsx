@@ -1,13 +1,44 @@
 import { FC } from 'react';
 
 import { Layout } from 'components/common/Layout';
+import { TCurrency } from 'types';
 
-import { useHome } from './useHome';
+import { useConverter } from './useConverter';
 
 export const Home: FC = () => {
-  const { currencyRate, isLoading } = useHome();
+  const {
+    selectedCurrency,
+    amount,
+    currencyRate,
+    onCurrencySelect,
+    onAmountChange,
+  } = useConverter();
 
   return (
-    <Layout>{isLoading ? 'LOADING' : JSON.stringify(currencyRate)}</Layout>
+    <Layout>
+      <div>{selectedCurrency.toUpperCase()}</div>
+      <input
+        type="number"
+        value={amount}
+        onChange={(event) => onAmountChange(parseInt(event.target.value, 10))}
+      />
+      {currencyRate && (
+        <div>
+          <hr />
+          {Object.entries(currencyRate).map(([currency, value]) => (
+            <div
+              onClick={() => onCurrencySelect(currency as TCurrency)}
+              role="presentation"
+              style={{ cursor: 'pointer' }}
+              key={currency}
+            >
+              <div>{currency.toUpperCase()}</div>
+              <div>{value}</div>
+              <br />
+            </div>
+          ))}
+        </div>
+      )}
+    </Layout>
   );
 };

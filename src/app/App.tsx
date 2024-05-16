@@ -3,7 +3,10 @@ import { RouterProvider } from 'react-router-dom';
 
 import { router } from '../router';
 import './App.css';
+import { useInit } from './useInit';
 
 export const App: FC = () => {
-  return <RouterProvider router={router} />;
+  const { isLoading } = useInit();
+
+  return isLoading ? <div>Loading...</div> : <RouterProvider router={router} />;
 };
