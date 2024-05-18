@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Layout } from 'components/common/Layout';
 import { TCurrency } from 'types';
 
+import { useTranslation } from './i18n';
 import { useConverter } from './useConverter';
 
 export const Home: FC = () => {
@@ -15,9 +16,11 @@ export const Home: FC = () => {
     onAmountChange,
   } = useConverter();
 
+  const { t } = useTranslation();
+
   return (
     <Layout>
-      <div>{dateOfUpdate}</div>
+      <div>{t('date_of_update', { dateOfUpdate })}</div>
       <br />
       <div>{selectedCurrency.toUpperCase()}</div>
       <input
