@@ -3,17 +3,22 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 import { Home } from 'components/pages/Home';
 import { Settings } from 'components/pages/Settings';
 
+export enum RouterPaths {
+  HOME = '/',
+  SETTINGS = '/settings',
+}
+
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: RouterPaths.HOME,
     element: <Home />,
   },
   {
-    path: '/settings',
+    path: RouterPaths.SETTINGS,
     element: <Settings />,
   },
   {
     path: '*',
-    element: <Navigate to="/" replace />,
+    element: <Navigate to={RouterPaths.HOME} replace />,
   },
 ]);

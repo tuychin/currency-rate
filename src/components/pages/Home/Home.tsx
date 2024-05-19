@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { Layout } from 'components/common/Layout';
+import { Menu } from 'components/common/Menu';
 import { TCurrency } from 'types';
 
 import { useTranslation } from './i18n';
@@ -19,7 +20,7 @@ export const Home: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout>
+    <Layout menu={<Menu />}>
       <div>{t('date_of_update', { dateOfUpdate })}</div>
       <br />
       <div>{selectedCurrency.toUpperCase()}</div>
