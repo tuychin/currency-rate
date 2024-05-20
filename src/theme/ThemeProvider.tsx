@@ -1,9 +1,7 @@
-import {
-  ThemeProvider as BaseThemeProvider,
-  ThemeOptions,
-  createTheme,
-} from '@mui/material';
+import { ThemeProvider as BaseThemeProvider, createTheme } from '@mui/material';
 import { FC, ReactElement, createContext, useMemo, useState } from 'react';
+
+import { darkThemeTokens, lightThemeTokens } from './tokens';
 
 type TTheme = 'light' | 'dark';
 
@@ -15,18 +13,6 @@ interface IThemeContext {
 interface IThemeProviderProps {
   children: ReactElement | ReactElement[];
 }
-
-const tokensLight: ThemeOptions = {
-  palette: {
-    mode: 'light',
-  },
-};
-
-const tokensDark: ThemeOptions = {
-  palette: {
-    mode: 'dark',
-  },
-};
 
 export const ThemeContext = createContext<IThemeContext | null>(null);
 
@@ -49,10 +35,10 @@ export const ThemeProvider: FC<IThemeProviderProps> = ({ children }) => {
   const theme = useMemo(() => {
     switch (currentTheme) {
       case 'dark':
-        return createTheme(tokensDark);
+        return createTheme(darkThemeTokens);
 
       default:
-        return createTheme(tokensLight);
+        return createTheme(lightThemeTokens);
     }
   }, [currentTheme]);
 

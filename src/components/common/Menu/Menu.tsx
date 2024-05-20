@@ -17,7 +17,7 @@ export const Menu: FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <AppBar position="static" sx={{ height: '100%' }}>
+    <AppBar position="static" color="default" sx={{ height: '100%' }}>
       <Toolbar
         sx={{
           display: 'flex',
@@ -33,7 +33,7 @@ export const Menu: FC = () => {
       >
         <IconButton
           size="medium"
-          color={location.pathname === RouterPaths.HOME ? 'info' : 'inherit'}
+          color={location.pathname === RouterPaths.HOME ? 'primary' : 'inherit'}
           onClick={() => {
             navigate(RouterPaths.HOME);
           }}
@@ -43,7 +43,7 @@ export const Menu: FC = () => {
         <IconButton
           size="medium"
           color={
-            location.pathname === RouterPaths.SETTINGS ? 'info' : 'inherit'
+            location.pathname === RouterPaths.SETTINGS ? 'primary' : 'inherit'
           }
           onClick={() => {
             navigate(RouterPaths.SETTINGS);
