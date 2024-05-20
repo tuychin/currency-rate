@@ -7,7 +7,7 @@ import { TCurrency } from 'types';
 import { convertCurrencyRate } from './convertCurrencyRate';
 
 export const useConverter = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState<TCurrency>('rub');
+  const [selectedCurrency, setSelectedCurrency] = useState<TCurrency>('RUB');
   const [amount, setAmount] = useState<number>(1);
   const currencyRate = useSelector((state) => state.currencyRate.data);
 

@@ -1,11 +1,11 @@
-import { Currency } from 'types';
+import { TCurrency } from 'types';
 
 export interface ICBRCurrencyRateResponse {
   /** Example: '2024-05-09' */
   date: string;
   timestamp: string;
-  base: keyof typeof Currency;
+  base: TCurrency;
   rates: {
-    [key in keyof typeof Currency]: number;
+    [key in TCurrency]: number;
   };
 }
