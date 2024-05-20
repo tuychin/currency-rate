@@ -7,7 +7,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    lng: 'ru',
+    lng: localStorage.getItem('language') ?? 'ru',
     fallbackLng: 'ru',
     interpolation: {
       escapeValue: false,
@@ -20,6 +20,7 @@ export type TLanguage = 'ru' | 'en';
 export const setLanguage = (language: TLanguage) => {
   if (i18n.language !== language) {
     i18n.changeLanguage(language);
+    localStorage.setItem('language', language);
   }
 };
 
