@@ -4,7 +4,7 @@ import { ChangeEvent, useMemo, useState } from 'react';
 import { TCurrencyRate, useSelector } from 'store';
 import { TCurrency } from 'types';
 
-import { convertCurrencyRate } from './convertCurrencyRate';
+import { convertCurrencyRate } from '../helpers/convertCurrencyRate';
 
 export const useConverter = () => {
   const [selectedCurrency, setSelectedCurrency] = useState<TCurrency>('RUB');

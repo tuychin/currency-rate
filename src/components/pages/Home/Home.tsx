@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
@@ -10,8 +11,8 @@ import { currencyData } from 'const';
 import { TCurrency } from 'types';
 
 import { CurrencyItem } from './CurrencyItem';
+import { useConverter } from './hooks/useConverter';
 import { useTranslation } from './i18n';
-import { useConverter } from './useConverter';
 
 export const Home: FC = () => {
   const {
@@ -39,11 +40,18 @@ export const Home: FC = () => {
         <CurrencyFlag currency={selectedCurrency} width={20} />
       </Typography>
       <TextField
-        variant="standard"
+        variant="outlined"
         type="number"
         value={Number.isNaN(amount) ? '' : amount}
         onChange={onAmountChange}
         sx={{ marginBottom: 2 }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              {currencyData[selectedCurrency].symbol}
+            </InputAdornment>
+          ),
+        }}
       />
       {currencyRate && (
         <Grid container spacing={2}>

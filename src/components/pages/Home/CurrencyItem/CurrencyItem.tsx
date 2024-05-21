@@ -21,7 +21,6 @@ export const CurrencyItem: FC<ICurrencyItemProps> = ({
   return (
     <Paper
       onClick={onCurrencySelect}
-      role="presentation"
       elevation={3}
       sx={{
         display: 'flex',
@@ -29,6 +28,14 @@ export const CurrencyItem: FC<ICurrencyItemProps> = ({
         gap: 1,
         padding: 2,
         cursor: 'pointer',
+        transform: 'scale(1)',
+        transition: 'transform 0.2s',
+        '&:hover': {
+          transform: 'scale(1.05)',
+        },
+        '&:active': {
+          transform: 'scale(1)',
+        },
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
