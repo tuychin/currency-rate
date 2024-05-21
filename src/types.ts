@@ -1,4 +1,4 @@
-import { currencyData } from 'constants';
+import { currencyData } from 'const';
 
 export type TCurrency = keyof typeof currencyData;
 

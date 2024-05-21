@@ -6,7 +6,7 @@ import CurrencyFlag from 'react-currency-flags';
 
 import { Layout } from 'components/common/Layout';
 import { Menu } from 'components/common/Menu';
-import { currencyData } from 'constants';
+import { currencyData } from 'const';
 import { TCurrency } from 'types';
 
 import { CurrencyItem } from './CurrencyItem';
