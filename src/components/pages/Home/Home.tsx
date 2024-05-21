@@ -1,5 +1,4 @@
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
@@ -10,6 +9,7 @@ import { Menu } from 'components/common/Menu';
 import { currencyData } from 'constants';
 import { TCurrency } from 'types';
 
+import { CurrencyItem } from './CurrencyItem';
 import { useTranslation } from './i18n';
 import { useConverter } from './useConverter';
 
@@ -46,36 +46,24 @@ export const Home: FC = () => {
         sx={{ marginBottom: 2 }}
       />
       {currencyRate && (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+        <Grid container spacing={2}>
           {Object.entries(currencyRate).map((currencyItem) => {
-            const [currencyCode, value] = currencyItem as [TCurrency, number];
+            const [currency, value] = currencyItem as [TCurrency, number];
 
             return (
-              <Paper
-                onClick={() => onCurrencySelect(currencyCode as TCurrency)}
-                role="presentation"
-                elevation={3}
-                key={currencyCode}
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 1,
-                  padding: 2,
-                  cursor: 'pointer',
-                }}
-              >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  {currencyCode}
-                  <CurrencyFlag currency={currencyCode} width={20} />
-                </Box>
-                <Box>
-                  {value.toLocaleString().replace(/,/g, ' ')}{' '}
-                  {currencyData[currencyCode].symbol}
-                </Box>
-              </Paper>
+              <Grid item xs={6} sm={6} md={3} lg={2} key={currency}>
+                <CurrencyItem
+                  currency={currency}
+                  currencyAmount={value.toLocaleString().replace(/,/g, ' ')}
+                  currencySymbol={currencyData[currency].symbol}
+                  onCurrencySelect={() =>
+                    onCurrencySelect(currency as TCurrency)
+                  }
+                />
+              </Grid>
             );
           })}
-        </Box>
+        </Grid>
       )}
     </Layout>
   );
