@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useMemo, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 
 import { TCurrencyRate, useSelector } from 'store';
 import { TCurrency } from 'types';
@@ -22,7 +22,8 @@ export const useConverter = () => {
     setSelectedCurrency(currency);
   };
 
-  const onAmountChange = (value: number) => {
+  const onAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(event.target.value, 10);
     setAmount(value);
   };
 

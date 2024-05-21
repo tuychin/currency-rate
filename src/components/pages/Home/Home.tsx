@@ -41,8 +41,8 @@ export const Home: FC = () => {
       <TextField
         variant="standard"
         type="number"
-        value={amount}
-        onChange={(event) => onAmountChange(parseInt(event.target.value, 10))}
+        value={Number.isNaN(amount) ? '' : amount}
+        onChange={onAmountChange}
         sx={{ marginBottom: 2 }}
       />
       {currencyRate && (

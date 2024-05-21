@@ -15,7 +15,9 @@ export const convertCurrencyRate = (
       return;
     }
 
-    const value = (amount * currencyRate[key]) / currencyRate[currency];
+    const value = Number.isNaN(amount)
+      ? 0
+      : (amount * currencyRate[key]) / currencyRate[currency];
     const roundedValue = Number(value.toFixed(2));
     result[key] = roundedValue || value;
   });
