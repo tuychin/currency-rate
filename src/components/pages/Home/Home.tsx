@@ -22,6 +22,7 @@ export const Home: FC = () => {
     currencyRate,
     onCurrencySelect,
     onAmountChange,
+    onInputKeyDown,
   } = useConverter();
 
   const { t } = useTranslation();
@@ -42,10 +43,14 @@ export const Home: FC = () => {
       <TextField
         variant="outlined"
         type="number"
-        value={Number.isNaN(amount) ? '' : amount}
-        onChange={onAmountChange}
+        value={amount}
+        onInput={onAmountChange}
+        onKeyDown={onInputKeyDown}
         sx={{ marginBottom: 2 }}
         InputProps={{
+          inputProps: {
+            min: 0,
+          },
           endAdornment: (
             <InputAdornment position="end">
               {currencyData[selectedCurrency].symbol}
