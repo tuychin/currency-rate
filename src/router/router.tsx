@@ -2,11 +2,7 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import { Home } from 'components/pages/Home';
 import { Settings } from 'components/pages/Settings';
-
-export enum RouterPaths {
-  HOME = '/',
-  SETTINGS = '/settings',
-}
+import { RouterPaths } from 'types';
 
 export const router = createBrowserRouter([
   {

@@ -8,7 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { RouterPaths } from 'router';
+import { RouterPaths } from 'types';
 
 export const Menu: FC = () => {
   const navigate = useNavigate();

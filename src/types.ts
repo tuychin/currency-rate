@@ -1,5 +1,10 @@
 import { currencyData } from 'const';
 
+export enum RouterPaths {
+  HOME = '/',
+  SETTINGS = '/settings',
+}
+
 export type TCurrency = keyof typeof currencyData;
 
 export type TAnyObject = { [key: string]: unknown };

@@ -44,11 +44,12 @@ export const Home: FC = () => {
         variant="outlined"
         type="number"
         value={amount}
-        onInput={onAmountChange}
+        onChange={onAmountChange}
         onKeyDown={onInputKeyDown}
         sx={{ marginBottom: 2 }}
         InputProps={{
           inputProps: {
+            'data-testid': 'amount-input',
             min: 0,
           },
           endAdornment: (
@@ -57,6 +58,7 @@ export const Home: FC = () => {
             </InputAdornment>
           ),
         }}
+        datatype="333"
       />
       {currencyRate && (
         <Grid container spacing={2}>
