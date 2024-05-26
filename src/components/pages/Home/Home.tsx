@@ -1,6 +1,4 @@
 import Grid from '@mui/material/Grid';
-import InputAdornment from '@mui/material/InputAdornment';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 import CurrencyFlag from 'react-currency-flags';
@@ -10,6 +8,7 @@ import { Menu } from 'components/common/Menu';
 import { currencyData } from 'const';
 import { TCurrency } from 'types';
 
+import { AmountInput } from './AmountInput';
 import { CurrencyItem } from './CurrencyItem';
 import { useConverter } from './hooks/useConverter';
 import { useTranslation } from './i18n';
@@ -22,7 +21,6 @@ export const Home: FC = () => {
     currencyRate,
     onCurrencySelect,
     onAmountChange,
-    onInputKeyDown,
   } = useConverter();
 
   const { t } = useTranslation();
@@ -40,25 +38,10 @@ export const Home: FC = () => {
         {selectedCurrency}{' '}
         <CurrencyFlag currency={selectedCurrency} width={20} />
       </Typography>
-      <TextField
-        variant="outlined"
-        type="number"
-        value={amount}
+      <AmountInput
+        amount={amount}
+        symbol={currencyData[selectedCurrency].symbol}
         onChange={onAmountChange}
-        onKeyDown={onInputKeyDown}
-        sx={{ marginBottom: 2 }}
-        InputProps={{
-          inputProps: {
-            'data-testid': 'amount-input',
-            min: 0,
-          },
-          endAdornment: (
-            <InputAdornment position="end">
-              {currencyData[selectedCurrency].symbol}
-            </InputAdornment>
-          ),
-        }}
-        datatype="333"
       />
       {currencyRate && (
         <Grid container spacing={2}>

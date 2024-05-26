@@ -1,6 +1,15 @@
 import { TCurrencyRate } from 'store';
 import { TCurrency } from 'types';
 
+/**
+ * Конвертирует список валют относительно выбранной валюты и её суммы
+ *
+ * @param amount Сумма выбранной валюты
+ * @param currency Выбранная валюта
+ * @param currencyRate Список всех валют
+ *
+ * @returns Курс валют относительно выбранной валюты и её суммы
+ */
 export const convertCurrencyRate = (
   amount: number,
   currency: TCurrency,
@@ -15,9 +24,10 @@ export const convertCurrencyRate = (
       return;
     }
 
-    const value = Number.isNaN(amount)
-      ? 0
-      : (amount * currencyRate[key]) / currencyRate[currency];
+    const value =
+      Number.isNaN(amount) || amount < 0
+        ? 0
+        : (amount * currencyRate[key]) / currencyRate[currency];
     const roundedValue = Number(value.toFixed(2));
     result[key] = roundedValue || value;
   });

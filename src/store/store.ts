@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
   TypedUseSelectorHook,
   useDispatch as useReduxDispatch,
@@ -7,10 +7,12 @@ import {
 
 import { currencyRateReducer } from './currencyRate';
 
+export const rootReducer = combineReducers({
+  currencyRate: currencyRateReducer,
+});
+
 export const store = configureStore({
-  reducer: {
-    currencyRate: currencyRateReducer,
-  },
+  reducer: rootReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

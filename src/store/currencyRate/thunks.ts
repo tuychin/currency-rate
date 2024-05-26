@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getCBRCurrencyRate } from 'api/currencyRate';
+import { currencyRateApi } from 'api/currencyRate';
 
 import { mapCurrencyRate } from './mappers';
 
@@ -8,7 +8,7 @@ export const fetchCurrencyRate = createAsyncThunk(
   'currencyRate/fetchCurrencyRate',
   async () => {
     try {
-      const { data } = await getCBRCurrencyRate();
+      const { data } = await currencyRateApi.getCBRCurrencyRate();
 
       return mapCurrencyRate(data);
     } catch (error) {

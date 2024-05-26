@@ -5,7 +5,7 @@
   "semi": true,
   "singleQuote": true,
   "importOrder": [
-    "^(api|app|components|router|store|theme|constants|types|helpers)",
+    "^(__testing__|api|app|components|router|store|theme|const|types|helpers)",
     "^[./]"
   ],
   "importOrderSeparation": true, 

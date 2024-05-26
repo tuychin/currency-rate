@@ -1,8 +1,8 @@
 import { TCurrency } from 'types';
 
-export type TCurrencyRate = {
+export type TCurrencyRate = Partial<{
   [key in TCurrency]: number;
-};
+}>;
 
 export interface ICurrencyRateData {
   /** '2000-12-31' */

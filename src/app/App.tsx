@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
 import { router } from '../router';
-import { useInit } from './useInit';
+import { useInit } from './hooks/useInit';
 
 export const App: FC = () => {
   const { isLoading } = useInit();

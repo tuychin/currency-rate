@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { ChangeEvent, KeyboardEvent, useMemo, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 
 import { TCurrencyRate, useSelector } from 'store';
 import { TCurrency } from 'types';
@@ -11,7 +11,7 @@ export const useConverter = () => {
   const [amount, setAmount] = useState<string>('1');
   const currencyRate = useSelector((state) => state.currencyRate.data);
 
-  const convertedCurrencyRate: TCurrencyRate | null = useMemo(
+  const convertedCurrencyRate: TCurrencyRate = useMemo(
     () =>
       currencyRate &&
       convertCurrencyRate(
@@ -32,12 +32,6 @@ export const useConverter = () => {
     setAmount(value);
   };
 
-  const onInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === '-' || event.key === '+') {
-      event.preventDefault();
-    }
-  };
-
   return {
     selectedCurrency,
     amount,
@@ -45,6 +39,5 @@ export const useConverter = () => {
     currencyRate: convertedCurrencyRate,
     onCurrencySelect,
     onAmountChange,
-    onInputKeyDown,
   };
 };
